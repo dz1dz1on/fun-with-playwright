@@ -18,7 +18,7 @@ export class LoginPage extends PageObject {
     await this.parentElement.hover();
   }
 
-  // In the rest of the tests we login by using API instead of this method
+  //TODO: add logging via api instead of using this function
   async loginToAccount(name: string, password: string): Promise<void> {
     await this.$.userNameInput.fill(name);
     await this.$.passwordInput.fill(password);
