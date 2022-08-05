@@ -11,7 +11,7 @@ export class CreateLabelModal extends PageObjectComponent {
       this.page.locator(".color-selector-container").locator("li").nth(index),
     saveButton: this.page
       .locator(".modal-two-footer")
-      .locator("button.button button-solid-norm"),
+      .locator("button.button-solid-norm"),
   };
 
   constructor(page: Page) {

@@ -12,7 +12,7 @@ export class CreateFolderModal extends PageObjectComponent {
       this.page.locator("[data-testid='select-list']").locator("li").nth(index),
     saveButton: this.page
       .locator(".modal-two-footer")
-      .locator("button.button button-solid-norm"),
+      .locator(".button.button-solid-norm"),
     notificationSwitch: this.page.locator(".toggle-label-text"),
   };
 
@@ -20,11 +20,7 @@ export class CreateFolderModal extends PageObjectComponent {
     super(page, page.locator(".modal-two-dialog-container"));
   }
 
-  // when you create first folder you can't select localisation
-  async createFolder(
-    folderName: string,
-    folderIndex: number = 0
-  ): Promise<void> {
+  async createFolder(folderName: string, folderIndex: number): Promise<void> {
     await this.$.folderNameInput.fill(folderName);
     await this.$.locationSelect(folderIndex);
     await this.$.saveButton.click();

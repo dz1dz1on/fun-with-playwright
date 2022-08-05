@@ -1,11 +1,11 @@
-import { Locator, Page } from "@playwright/test";
+import { Page } from "@playwright/test";
 import { PageObject } from "page-objects/base-page-objects/page-object";
 import { AccountFoldersComponent } from "./account-folders.component";
 import { AccountLabelsComponent } from "./account-labels.component";
 
 const pageUrl = "https://account.proton.me/u/2/mail/folders-labels";
 
-export class MailLandingPage extends PageObject {
+export class AccountFoldersAndLabelsPage extends PageObject {
   $ = {
     accountFoldersComponent: new AccountFoldersComponent(this.page),
     accountLabelsComponent: new AccountLabelsComponent(this.page),

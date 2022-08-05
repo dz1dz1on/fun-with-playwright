@@ -7,7 +7,10 @@ export class MailNavigationComponent extends PageObjectComponent {
     folderSettingsLink: this.page.locator(
       '[data-testid="navigation-link:folders-settings"]'
     ),
+    createdFolder: (folderName: string) =>
+      this.page.locator(`[title="${folderName}"]`),
   };
+
   constructor(page: Page) {
     super(page);
   }
