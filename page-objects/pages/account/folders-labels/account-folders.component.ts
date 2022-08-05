@@ -26,6 +26,7 @@ export class AccountFoldersComponent extends PageObjectComponent {
   }
 
   async getNumberOfFolders(): Promise<number> {
+    await this.page.waitForLoadState();
     return await this.$.tableRows.count();
   }
 
