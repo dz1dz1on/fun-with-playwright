@@ -1,5 +1,6 @@
 import { Page } from "@playwright/test";
 import { PageObjectComponent } from "page-objects/base-page-objects/page-object-component";
+import { CreateFolderModal } from "./create-folder-modal.component";
 
 export class AccountFoldersComponent extends PageObjectComponent {
   $ = {
@@ -32,7 +33,8 @@ export class AccountFoldersComponent extends PageObjectComponent {
     await this.$.removeFolderButton.click();
   }
 
-  async addFolder(): Promise<void> {
+  async addFolder(folderName: string): Promise<void> {
     await this.$.addFolderButton.click();
+    await this.$.createFolderModal.createFolder(folderName, folder);
   }
 }
