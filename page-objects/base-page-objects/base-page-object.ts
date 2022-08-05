@@ -17,7 +17,7 @@ export interface Object$ {
 }
 
 export class BasePageObject {
-  $: Object$; // Place to store page elements
+  $: Object$; // Store here page elements
   readonly page: Page;
   private readonly _parentElement: Locator | undefined;
 
@@ -32,7 +32,7 @@ export class BasePageObject {
   get parentElement(): Locator {
     if (!this._parentElement) {
       throw Error(
-        `No "parentElement" provided in PageObject constructor. Either add it, or use "this.page" instead!`
+        `No "parentElement" in PageObject constructor. Please add it`
       );
     }
     return this._parentElement;

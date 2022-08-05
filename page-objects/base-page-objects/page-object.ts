@@ -18,13 +18,12 @@ export abstract class PageObject extends BasePageObject {
     return this.privateUrl;
   }
 
-  async load(): Promise<PageObject> {
+  async load(): Promise<void> {
     try {
       await this.loadPage();
     } catch (error) {
       throw error;
     }
-    return this;
   }
 
   private async loadPage() {
