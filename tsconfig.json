@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "outDir": "build/",
+    "sourceMap": true,
+    "inlineSourceMap": false,
+    "module": "commonjs",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules", "build"],
+  "include": ["./**/*.ts"]
+}
