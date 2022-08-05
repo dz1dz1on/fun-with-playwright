@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
 import { PageObject } from "page-objects/base-page-objects/page-object";
-import { MailNavigationComponent } from "./mailNavigation.component";
+import { MailNavigationComponent } from "./mail-navigation.component";
 
 const pageUrl = "https://mail.proton.me/";
 
