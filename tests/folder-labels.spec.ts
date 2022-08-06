@@ -29,7 +29,7 @@ test.describe("Folder and Labels", () => {
     // TODO: implement clearing of the state. Right now we can only create 3 folder/labels. Hard to propose one and the only solution without knowledge of architecture.
   });
 
-  test.only("should allow to add new folder and remove it", async () => {
+  test("should allow to add new folder and remove it", async () => {
     testData = {
       folderName: `${faker.word.adjective()}-folder`,
       folderIndexToRemove: 0,
