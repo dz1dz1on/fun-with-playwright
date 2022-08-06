@@ -8,6 +8,8 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      PASSWORD: ${{ secrets.PASSWORD}}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -16,7 +18,7 @@ jobs:
       - name: "Create env file"
         run: |
           touch .env
-          echo PASSWORD=${{ secrets.PASSWORD }} > .env
+          echo PASSWORD=${{ env.PASSWORD }} > .env
           cat .env
       - name: Install dependencies
         run: npm ci
