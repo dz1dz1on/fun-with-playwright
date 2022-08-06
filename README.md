@@ -17,7 +17,7 @@ Examples of scenarios are described in the `Scenarios.md` file.
 ## Known Issues
 
 1. Test are not stabilized on CI/CD and cleaning data mechanism isn't implemented.
-2. Limit for logging in. After a few logs in you are blocked.
+2. Limit for logging in. After a few logs in you are blocked. Might be a solution: https://qxperts.io/authenticate-once-with-playwright/ (did not try it)
 
 # Things that should be done (sadly I didn't made on time):
 
