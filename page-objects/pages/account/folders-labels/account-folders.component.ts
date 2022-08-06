@@ -21,6 +21,8 @@ export class AccountFoldersComponent extends PageObjectComponent {
     ),
     removeFolderOrLabelModal: new RemoveFolderOrLabelModal(this.page),
     createFolderModal: new CreateFolderModal(this.page),
+    createdFolderName: (folderName: string) =>
+      this.page.locator(`[title="${folderName}"]`).nth(1),
   };
 
   constructor(page: Page) {

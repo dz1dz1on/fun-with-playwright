@@ -23,6 +23,11 @@ export class AccountLabelsComponent extends PageObjectComponent {
     ),
     createLabelModal: new CreateLabelModal(this.page),
     removeFolderOrLabelModal: new RemoveFolderOrLabelModal(this.page),
+    createdLabelName: (title: string) =>
+      this.parentElement
+        .locator('[data-test-id="folders/labels:item-name"]')
+        .locator(`[title=${title}]`)
+        .nth(1),
   };
 
   constructor(page: Page) {

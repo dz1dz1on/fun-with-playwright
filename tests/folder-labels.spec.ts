@@ -25,7 +25,11 @@ test.describe("Folder and Labels", () => {
     await accountFoldersAndLabelsPage.waitForPageLoad();
   });
 
-  test("should allow to add new folder and remove it", async () => {
+  test.afterEach(() => {
+    // TODO: implement clearing of the state. Right now we can only create 3 folder/labels. Hard to propose one and the only solution without knowledge of architecture.
+  });
+
+  test.only("should allow to add new folder and remove it", async () => {
     testData = {
       folderName: `${faker.word.adjective()}-folder`,
       folderIndexToRemove: 0,
@@ -38,7 +42,11 @@ test.describe("Folder and Labels", () => {
     const noOfFoldersAfterAddition =
       await accountFoldersComponent.getNumberOfFolders();
 
+    // check if new folder has been added
     await expect(noOfFoldersAfterAddition).toEqual(noOfFolders + 1);
+    await expect(
+      accountFoldersComponent.$.createdFolderName(testData.folderName)
+    ).toBeVisible();
 
     await accountFoldersComponent.removeFolder(testData.folderIndexToRemove);
 
@@ -67,9 +75,13 @@ test.describe("Folder and Labels", () => {
     const noOfLabelsAfterAddingNew =
       await accountLabelsComponent.countNumberOfLabels();
 
+    // check if new label has been added
     await expect(noOfLabelsAfterAddingNew).toEqual(
       noOfLabelsBeforeAddingNew + 1
     );
+    await expect(
+      accountLabelsComponent.$.createdLabelName(testData.labelName)
+    ).toBeVisible();
 
     await accountLabelsComponent.removeLabel(testData.labelIndexNumber);
 
