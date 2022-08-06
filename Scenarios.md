@@ -46,7 +46,7 @@ Spotted things:
 
 `Expect:` On E2E side we should check that lets say first Element now is last. First should be 1
 
-## 4. Drag and drop one folder to another to nest him inside.[x] (I don't know how much imporant it is but I think most of users are using it because it is convenient )
+## 4. Drag and drop one folder to another to nest him inside[x] (I don't know how much imporant it is but I think most of users are using it because it is convenient )
 
 - Log in as user
 - Move to "https://account.proton.me/u/3/mail/folders-labels" url
@@ -56,7 +56,7 @@ Spotted things:
 `Expect:` When you click edit button on nested folder you should see in modal that localisation is set to upper folder<br />
 `Comment:` Again good candidate to visual regression testing. Screenshot should show nesting of folder.
 
-## 5. Check color toggle for folder
+## 5. Check color toggle for folder[x]
 
 - Log in as user
 - Move to "https://account.proton.me/u/3/mail/folders-labels" url
@@ -66,6 +66,6 @@ Spotted things:
 `Expect:` Folder color changed from previous one to different<br />
 `Expect:` Additional switch appears "Apply the color of the parent folder"
 
-## 6. Checking of errors (this should be covered by component tests on frontend side)
+## 6. Checking of errors[x] (this should be covered by component tests on frontend side)
 
 - Try to add label/folder with empty name and check if error message appears etc.
