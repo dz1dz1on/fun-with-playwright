@@ -31,7 +31,7 @@ const config: PlaywrightTestConfig = {
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    actionTimeout: 15000,
+    actionTimeout: 20000,
     video: "retain-on-failure",
     trace: "retain-on-failure",
     headless: !!process.env.CI,
