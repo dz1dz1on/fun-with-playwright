@@ -2,7 +2,9 @@
 
 1. Clone repository `git@github.com:dz1dz1on/fun-with-playwright.git`
 2. After clonning repository you need to run inside a project: `npm install` to install all needed dependencies
-3. To run test on local machine you need to be in the project directory and use:
+3. Before running tests you need to create `.env` file in repository
+4. Data for filling `.env` file is sent via e-mail to recruiter. If there is a problem please ping me back.
+5. To run test on local machine you need to be in the project directory and use:
    `npm run test`
 
 Due to only one avalaiable user tests are running one after another - parallel testing is off.

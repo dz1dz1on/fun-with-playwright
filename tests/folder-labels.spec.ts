@@ -17,7 +17,7 @@ test.describe("Folder and Labels", () => {
     accountFoldersAndLabelsPage = new AccountFoldersAndLabelsPage(page);
 
     await loginPage.load();
-    await loginPage.loginToAccount(USER.name, USER.password);
+    await loginPage.loginToAccount(USER.name, process.env.PASSWORD);
     await mailLandingPage.waitForPageLoad();
     await mailLandingPage.$.navigationComponent.$.folderSettingsLink.click();
     await accountFoldersAndLabelsPage.waitForPageLoad();
@@ -27,7 +27,7 @@ test.describe("Folder and Labels", () => {
     // TODO: implement clearing of the state.
   });
 
-  test("should allow to add new folder and remove it", async () => {
+  test.only("should allow to add new folder and remove it", async () => {
     testData = {
       folderName: `${faker.word.adjective()}-folder`,
     };
