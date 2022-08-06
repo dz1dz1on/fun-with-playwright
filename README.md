@@ -9,7 +9,8 @@ Due to only one avalaiable user tests are running one after another - parallel t
 
 ## Known Issues
 
-- test are not stabilized on CI/CD and cleaning data mechanism isn't implemented
+1. Test are not stabilized on CI/CD and cleaning data mechanism isn't implemented.
+2. Limit for logging in. After a few logs in you are blocked.
 
 # Things that should be done (sadly I didn't made on time):
 - create dockerfile for CI/CD which will pull playwright image and build it then  publish to docker site or any cloud
