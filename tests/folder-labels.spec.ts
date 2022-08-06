@@ -17,7 +17,7 @@ test.describe("Folder and Labels", () => {
     accountFoldersAndLabelsPage = new AccountFoldersAndLabelsPage(page);
 
     await loginPage.load();
-    await loginPage.loginToAccount(USER.name, process.env.SOME_API_KEY);
+    await loginPage.loginToAccount(USER.name, process.env.PASSWORD);
     await mailLandingPage.waitForPageLoad();
     await mailLandingPage.$.navigationComponent.$.folderSettingsLink.click();
     await accountFoldersAndLabelsPage.waitForPageLoad();
