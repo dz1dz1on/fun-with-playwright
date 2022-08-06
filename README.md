@@ -17,6 +17,7 @@ Due to only one avalaiable user tests are running one after another - parallel t
 - add url builder instead of using hardcoded values
 - remove any hardcoded user or envs from the code and use it via env variables
 - move some repetetive stuff to shared-components catalogue and create new utils
+- artifacts are too big to be stored in github => maybe we should store them in S3 and somehow add them links to download them?
 
 
 
