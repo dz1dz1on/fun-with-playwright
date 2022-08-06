@@ -41,8 +41,8 @@ Spotted things:
 - Add another one and save
 
 `Expect:` You should see on top of the screen red widget with info that you need to update the account
-
 - Press sort button to sort alphabetically <br />
+
 `Expect:` On E2E side we should check that lets say first Element now is last. First should be 1
 
 ## 4. Drag and drop one folder to another to nest him inside.[x] (I don't know how much imporant it is but I think most of users are using it because it is convenient )
