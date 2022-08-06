@@ -9,10 +9,10 @@ Due to only one avalaiable user tests are running one after another - parallel t
 
 ## Scenarios
 
-Examples of scenarios are described in the Scenarios.md file
+Examples of scenarios are described in the `Scenarios.md` file.
 
-[x] - sign means that scenario hasn't been covered by automated tests
-[DONE] - covered by automated tests
+- `[x]` - did not covered by automated tests
+- `[DONE]` - covered by automated tests
 
 ## Known Issues
 
