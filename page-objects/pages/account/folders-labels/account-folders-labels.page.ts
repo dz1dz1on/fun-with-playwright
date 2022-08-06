@@ -16,6 +16,6 @@ export class AccountFoldersAndLabelsPage extends PageObject {
   }
 
   async waitForPageLoad(): Promise<void> {
-    await this.$.accountFoldersComponent.parentElement.hover();
+    await this.$.accountFoldersComponent.$.addFolderButton.hover();
   }
 }

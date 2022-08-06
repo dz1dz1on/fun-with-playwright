@@ -1,6 +1,8 @@
 import { Page } from "@playwright/test";
 import { PageObjectComponent } from "page-objects/base-page-objects/page-object-component";
 import { CreateFolderModal } from "./create-folder-modal.component";
+import { countNumberOfElements } from "./../../../utils/methods";
+import { RemoveFolderOrLabelModal } from "page-objects/shared-components/remove-folder-label-modal.component";
 
 export class AccountFoldersComponent extends PageObjectComponent {
   $ = {
@@ -17,7 +19,7 @@ export class AccountFoldersComponent extends PageObjectComponent {
     removeFolderButton: this.page.locator(
       '[data-test-id="folders/labels:item-delete"]'
     ),
-    acceptRemovalButton: this.page.locator(".button.button-solid-danger.w100"),
+    removeFolderOrLabelModal: new RemoveFolderOrLabelModal(this.page),
     createFolderModal: new CreateFolderModal(this.page),
   };
 
@@ -27,15 +29,14 @@ export class AccountFoldersComponent extends PageObjectComponent {
 
   async getNumberOfFolders(): Promise<number> {
     await this.page.waitForLoadState();
-    return await this.$.tableRows.count();
+    return await countNumberOfElements(this.$.tableRows);
   }
 
   async removeFolder(index: number): Promise<void> {
     await this.$.folderDropdownButton(index).click();
     await this.$.removeFolderButton.click();
     await this.page.waitForLoadState("networkidle");
-    await this.$.acceptRemovalButton.click();
-    await this.$.acceptRemovalButton.waitFor({ state: "detached" });
+    await this.$.removeFolderOrLabelModal.acceptRemoval();
   }
 
   // when you create first folder you can't select folderLocalisationIndex

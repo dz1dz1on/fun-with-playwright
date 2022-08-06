@@ -1,5 +1,6 @@
 import { Page } from "@playwright/test";
 import { PageObjectComponent } from "page-objects/base-page-objects/page-object-component";
+import { TIMEOUT } from "page-objects/data/timeouts.data";
 
 export class CreateLabelModal extends PageObjectComponent {
   $ = {
@@ -27,5 +28,9 @@ export class CreateLabelModal extends PageObjectComponent {
     await this.$.nameOfLabelInput.fill(labelName);
     await this.pickColor(colorIndex);
     await this.$.saveButton.click();
+    await this.$.saveButton.waitFor({
+      state: "detached",
+      timeout: TIMEOUT.SHORT,
+    });
   }
 }
