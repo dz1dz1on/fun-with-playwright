@@ -24,13 +24,12 @@ test.describe("Folder and Labels", () => {
   });
 
   test.afterEach(() => {
-    // TODO: implement clearing of the state. Right now we can only create 3 folder/labels. Hard to propose one and the only solution without knowledge of architecture.
+    // TODO: implement clearing of the state.
   });
 
   test("should allow to add new folder and remove it", async () => {
     testData = {
       folderName: `${faker.word.adjective()}-folder`,
-      folderIndexToRemove: 0,
     };
 
     const { accountFoldersComponent } = accountFoldersAndLabelsPage.$;
@@ -46,7 +45,7 @@ test.describe("Folder and Labels", () => {
       accountFoldersComponent.$.createdFolderName(testData.folderName)
     ).toBeVisible();
 
-    await accountFoldersComponent.removeFolder(testData.folderIndexToRemove);
+    await accountFoldersComponent.removeFolder(testData.folderName);
 
     const noOfFoldersAfterRemoval =
       await accountFoldersComponent.getNumberOfFolders();
@@ -87,5 +86,46 @@ test.describe("Folder and Labels", () => {
       await accountLabelsComponent.countNumberOfLabels();
 
     await expect(noOfLabelsAfterRemoval).toEqual(noOfLabelsAfterAddingNew - 1);
+  });
+
+  test("should allow to add folder inside a folder and remove both by remoing top folder", async () => {
+    const testData = {
+      topFolderName: `${faker.word.adjective()}-1-folder`,
+      nestedFolderName: `${faker.word.adjective()}-2-folder`,
+    };
+    const folderTitle = `${testData.topFolderName}/${testData.nestedFolderName}`;
+    const { accountFoldersComponent } = accountFoldersAndLabelsPage.$;
+
+    await accountFoldersComponent.addFolder(testData.topFolderName);
+    await accountFoldersComponent.addFolder(
+      testData.nestedFolderName,
+      true,
+      testData.topFolderName
+    );
+
+    await expect(
+      accountFoldersComponent.$.createdNestedFolder(folderTitle)
+    ).toBeVisible();
+
+    // Visual regression could be a good idea to add here
+
+    await accountFoldersComponent.$.editFolderButton(folderTitle).click();
+
+    await expect(
+      accountFoldersComponent.$.createFolderModal.$.folderLocationButton
+    ).toHaveText(testData.topFolderName);
+
+    await accountFoldersComponent.$.createFolderModal.$.cancelButton.click();
+
+    // check number of folders and remove top one
+    const currentNoOfFolders =
+      await accountFoldersComponent.getNumberOfFolders();
+
+    await accountFoldersComponent.removeFolder(testData.topFolderName);
+
+    const noOfFoldersAfterRemoval =
+      await accountFoldersComponent.getNumberOfFolders();
+
+    await expect(noOfFoldersAfterRemoval).toEqual(currentNoOfFolders - 2);
   });
 });

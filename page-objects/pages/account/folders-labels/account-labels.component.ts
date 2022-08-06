@@ -2,7 +2,7 @@ import { Page } from "@playwright/test";
 import { PageObjectComponent } from "page-objects/base-page-objects/page-object-component";
 import { TIMEOUT } from "page-objects/data/timeouts.data";
 import { RemoveFolderOrLabelModal } from "page-objects/shared-components/remove-folder-label-modal.component";
-import { countNumberOfElements } from "page-objects/utils/methods";
+import { countNumberOfElements } from "utils/methods";
 import { CreateLabelModal } from "./create-label-modal.component";
 
 export class AccountLabelsComponent extends PageObjectComponent {
@@ -37,7 +37,7 @@ export class AccountLabelsComponent extends PageObjectComponent {
 
   async removeLabel(index: number): Promise<void> {
     //TODO: move edit and remove action to shared components catalogue. Its the same like account-folder component
-    await this.page.waitForTimeout(TIMEOUT.SHORT); // added little delay to avoid problems described in e-mail. Maybe we need to wait for some request.
+    await this.page.waitForTimeout(TIMEOUT.SHORT); // added little delay to avoid problems with too quick clicking. Maybe we need to wait for some request.
     await this.$.labelDropdownButton(index).click();
     await this.$.removeLabelButton.click();
     await this.page.waitForLoadState("networkidle");

@@ -21,7 +21,7 @@ Spotted things:
 
 - folder and label also appears on landing page - did not automated
 
-## 2. Add folder inside of another folder and remove[X]
+## 2. Add folder inside of another folder and remove[DONE]
 
 - Log in as user
 - Move to "https://account.proton.me/u/3/mail/folders-labels" url
@@ -41,6 +41,7 @@ Spotted things:
 - Add another one and save
 
 `Expect:` You should see on top of the screen red widget with info that you need to update the account
+
 - Press sort button to sort alphabetically <br />
 
 `Expect:` On E2E side we should check that lets say first Element now is last. First should be 1

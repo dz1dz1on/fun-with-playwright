@@ -13,6 +13,7 @@ export class RemoveFolderOrLabelModal extends PageObjectComponent {
   }
 
   async acceptRemoval(): Promise<void> {
+    await this.$.removeButton.hover();
     await this.$.removeButton.click();
     await this.$.removeButton.waitFor({ state: "detached" });
   }
