@@ -5,8 +5,6 @@ import { LoginPage } from "page-objects/pages/login.page";
 import { MailLandingPage } from "page-objects/pages/mail/mail-landing.page";
 import { faker } from "@faker-js/faker";
 
-type stringOrNumer = string | number;
-
 test.describe("Folder and Labels", () => {
   let loginPage: LoginPage;
   let mailLandingPage: MailLandingPage;
