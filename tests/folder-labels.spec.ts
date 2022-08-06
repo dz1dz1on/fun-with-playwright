@@ -27,7 +27,7 @@ test.describe("Folder and Labels", () => {
     // TODO: implement clearing of the state.
   });
 
-  test.only("should allow to add new folder and remove it", async () => {
+  test("should allow to add new folder and remove it", async () => {
     testData = {
       folderName: `${faker.word.adjective()}-folder`,
     };
